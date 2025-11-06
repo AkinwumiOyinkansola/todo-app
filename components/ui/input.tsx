@@ -1,7 +1,7 @@
 import React from 'react';
 import { TextInput, TextInputProps, ViewStyle } from 'react-native';
 import styled from 'styled-components/native';
-import { theme } from '@/constants/theme';
+import { theme } from '../../app/constants/theme';
 
 const StyledInput = styled.TextInput<{ themeMode: 'light' | 'dark' }>`
   background-color: ${({ themeMode }: { themeMode: 'light' | 'dark' }) => theme.colors[themeMode].surface};

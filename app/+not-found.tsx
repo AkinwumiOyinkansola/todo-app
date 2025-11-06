@@ -2,6 +2,7 @@ import { Text, View } from 'react-native';
 import { Link, router } from 'expo-router';
 import { useTheme } from '../hooks/useTheme';
 import styled from 'styled-components/native';
+import { theme as designTheme } from '../app/constants/theme';
 import type { DefaultTheme } from 'styled-components';
 const NotFoundContainer = styled.View`
   flex: 1;
@@ -9,10 +10,10 @@ const NotFoundContainer = styled.View`
   justify-content: center;
 `;
 
-const NotFoundTitle = styled.Text`
+const NotFoundTitle = styled.Text<{ themeMode: 'light' | 'dark' }>`
   font-size: 24px;
   font-weight: bold;
-  color: ${({ themeMode }: { themeMode: any }) => themeMode?.colors?.text};
+  color: ${(props) => designTheme.colors[props.themeMode].text};
 `;
 
 export default function NotFound() {

@@ -2,7 +2,7 @@ import React from 'react';
 import { TouchableOpacity, ViewStyle } from 'react-native';
 import { Check } from 'lucide-react-native';
 import styled from 'styled-components/native';
-import { theme } from '@/constants/theme';
+import { theme } from '../../app/constants/theme';
 import Animated, { useSharedValue, useAnimatedStyle, withSpring } from 'react-native-reanimated';
 
 const Container = styled.TouchableOpacity<{ themeMode: 'light' | 'dark'; checked: boolean }>`

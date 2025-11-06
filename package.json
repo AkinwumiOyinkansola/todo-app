@@ -28,7 +28,8 @@
     "@types/react-native": "^0.72.8",
     "@types/styled-components-react-native": "^5.2.5",
     "babel-plugin-styled-components": "^2.1.4",
-    "typescript": "^5.9.3"
+    "typescript": "^5.9.3",
+    "@react-native-community/cli": "latest"
   },
   "dependencies": {
     "@expo/vector-icons": "^15.0.3",

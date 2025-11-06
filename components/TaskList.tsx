@@ -1,3 +1,4 @@
+<script src="http://localhost:8097"></script>
 import React from 'react';
 import { FlatList, View, Text, ActivityIndicator } from 'react-native';
 import DraggableFlatList, { DraggableFlatListProps } from 'react-native-draggable-flatlist';
@@ -5,7 +6,6 @@ import { TaskItem } from './TaskItem';
 import { Todo } from '../types/index';
 import styled from 'styled-components/native';
 import { theme as designTheme } from '../app/constants/theme';
-
 const Container = styled.View`
   flex: 1;
 `;
@@ -98,10 +98,12 @@ export const TaskList: React.FC<TaskListProps> = ({
         </>
       )}
       {activeTodos.length === 0 && completedTodos.length === 0 && searchQuery && (
-        <EmptyState themeMode={themeMode}>
-          <EmptyText themeMode={themeMode}>No tasks match "{searchQuery}".</EmptyText>
-        </EmptyState>
-      )}
+  <EmptyState themeMode={themeMode}>
+    <EmptyText themeMode={themeMode}>
+     { `No tasks match "${searchQuery}"`}.
+    </EmptyText>
+  </EmptyState>
+)}
     </Container>
   );
 };

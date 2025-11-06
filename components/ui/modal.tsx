@@ -1,7 +1,7 @@
 import React from 'react';
 import { Modal as RNModal, View, Pressable, Dimensions } from 'react-native';
 import styled from 'styled-components/native';
-import { theme } from '@/constants/theme';
+import { theme } from '../../app/constants/theme';
 import Animated, { FadeIn, FadeOut } from 'react-native-reanimated';
 
 const { height } = Dimensions.get('window');

@@ -3,7 +3,7 @@ import { View, TextInput } from 'react-native';
 import { Search } from 'lucide-react-native';
 import styled from 'styled-components/native';
 import { Input } from '../components/ui/input';
-import { theme as designTheme } from '@/constants/theme';
+import { theme as designTheme } from '../app/constants/theme';
 import { useTodos } from '../hooks/useTodos';
 
 const Container = styled.View`

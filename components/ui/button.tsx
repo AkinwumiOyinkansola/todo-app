@@ -1,7 +1,7 @@
 import React from 'react';
 import { TouchableOpacity, Text, StyleSheet, TouchableOpacityProps } from 'react-native';
 import styled from 'styled-components/native';
-import { theme } from '@/constants/theme';
+import { theme } from '../../app/constants/theme';
 
 const StyledButton = styled.TouchableOpacity<{ variant?: 'primary' | 'secondary'; themeMode: 'light' | 'dark' }>`
   background-color: ${({ variant, themeMode }: { variant?: 'primary' | 'secondary'; themeMode: 'light' | 'dark' }) =>

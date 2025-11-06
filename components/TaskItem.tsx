@@ -1,3 +1,4 @@
+<script src="http://localhost:8097"></script>
 import React from 'react';
 import { View, Text, Pressable, StyleSheet, Dimensions, Alert } from 'react-native';
 //import { useDispatch } from 'react-redux'; // Wait, no Redux, use props
@@ -5,7 +6,7 @@ import { Checkbox } from '../components/ui/checkbox';
 import { Todo } from '../types/index';
 import { formatDueDate, isOverdue } from '../lib/utils';
 import styled from 'styled-components/native';
-import { theme as designTheme } from '@/constants/theme';
+import { theme as designTheme } from '../app/constants/theme';
 import Animated, { useAnimatedStyle, withSpring, FadeInDown } from 'react-native-reanimated';
 import { GestureHandlerRootView, Swipeable } from 'react-native-gesture-handler'; // For swipe delete
 
@@ -61,23 +62,28 @@ export const TaskItem: React.FC<TaskItemProps> = ({ todo, onToggle, onDelete, on
     transform: [{ scale: withSpring(0.95) }], // For press animation
   }));
 
-  const renderRightActions = () => (
+const renderRightActions = () => (
+  <View>
     <Pressable
       style={styles.deleteButton}
-      onPress={() => {
-        Alert.alert('Delete Task', 'Are you sure?', [{ text: 'Cancel' }, { text: 'Delete', onPress: () => onDelete(todo._id) }]);
-      }}
+      onPress={() =>
+        Alert.alert('Delete Task', 'Are you sure?', [
+          { text: 'Cancel' },
+          { text: 'Delete', onPress: () => onDelete(todo._id) },
+        ])
+      }
     >
       <Text style={styles.deleteText}>Delete</Text>
     </Pressable>
-  );
+  </View>
+);
 
   return (
       <Swipeable renderRightActions={renderRightActions}>
       <Pressable onPress={() => onEdit(todo)} style={{ flex: 1 }}>
         <Animated.View entering={FadeInDown} style={[styles.container, scale]}>
           <Checkbox checked={todo.completed} onPress={() => onToggle(todo._id)} themeMode={themeMode} />
-          <Content>
+          {/* <Content>
             <Title themeMode={themeMode} completed={todo.completed}>
               {todo.title}
             </Title>
@@ -85,7 +91,7 @@ export const TaskItem: React.FC<TaskItemProps> = ({ todo, onToggle, onDelete, on
             <DueDate themeMode={themeMode} overdue={isOverdue(todo.dueDate)}>
               {formatDueDate(todo.dueDate)}
             </DueDate>
-          </Content>
+          </Content> */}
         </Animated.View>
       </Pressable>
     </Swipeable>
